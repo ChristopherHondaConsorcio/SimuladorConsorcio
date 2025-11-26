@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Simulador Consórcio Honda</title>
+<style>
+    body {font-family: Arial, sans-serif; margin:0; padding:0; background:#f9f9f9;}
+    header {background:#c00; color:#fff; text-align:center; padding:10px;}
+    header img {max-height:60px; display:block; margin:0 auto;}
+    .container {max-width:900px; margin:20px auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+    h2 {color:#c00; margin-bottom:10px;}
+    input {width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:4px;}
+    .btn {background:#c00; color:#fff; padding:12px; border:none; border-radius:4px; cursor:pointer; font-weight:bold; width:100%;}
+    .resultado {margin-top:15px; font-size:18px; font-weight:bold;}
+    .vantagens, .liberdade {margin:30px auto; padding:20px; background:#f1f1f1; border-radius:8px;}
+    .vantagens h2, .liberdade h2 {color:#c00; text-align:center; margin-bottom:15px;}
+    .vantagens ul, .liberdade ul {list-style:none; padding:0;}
+    .vantagens ul li, .liberdade ul li {background:#fff; margin:10px 0; padding:10px; border-radius:4px; box-shadow:0 0 5px rgba(0,0,0,0.1); font-size:16px;}
+    footer {text-align:center; margin-top:20px; padding:10px; background:#f1f1f1;}
+    footer img {max-height:80px;}
+</style>
+</head>
+<body>
+<header>
+    <img src='WhatsApp Image 2025-11-26 at 10.00.57.jpeg' alt='Logo Honda Consórcio'>
+    <h1>Simulador de Consórcio Honda</h1>
+</header>
+<div class='container'>
+    <h2>Simule sua Carta de Crédito</h2>
+    <label for='valorDesejado'>Valor desejado:</label>
+    <input type='number' id='valorDesejado' placeholder='Digite o valor desejado'>
+    <button class='btn' onclick='simular()'>Simular</button>
+    <div class='resultado' id='resultado'></div>
+    <hr>
+    <h2>Solicite mais informações</h2>
+    <input type='text' id='nome' placeholder='Seu nome'>
+    <input type='tel' id='telefone' placeholder='Telefone'>
+    <input type='email' id='email' placeholder='E-mail'>
+    <button class='btn' onclick='enviarWhatsApp()'>Falar no WhatsApp</button>
+</div>
+<div class='vantagens'>
+    <h2>Vantagens do Consórcio Honda Automotivo</h2>
+    <ul>
+        <li>✔ Grupos pequenos de até 252 participantes</li>
+        <li>✔ Contemplações garantidas dentro do prazo do grupo</li>
+        <li>✔ Transparência e credibilidade Honda</li>
+        <li>✔ Na Honda Niponsul todo suporte do Consultor Christopher Norat, na compra até a sua contemplação</li>
+    </ul>
+</div>
+<div class='liberdade'>
+    <h2>Liberdade de Escolha</h2>
+    <ul>
+        <li>✔ Ao ser contemplado, você pode usar a carta para adquirir um carro 0km ou seminovo</li>
+        <li>✔ Honda até 5 anos de fabricação e outras marcas até 3 anos</li>
+        <li>✔ Pode comprar em qualquer concessionária ou loja multimarcas em todo o Brasil</li>
+    </ul>
+</div>
+<footer>
+    <img src='WhatsApp Image 2025-11-26 at 10.00.57(1).jpeg' alt='Logo Honda Niponsul'>
+</footer>
+<script>
+const cartas = [
+    {valor:61977, parcela:882.07},
+    {valor:73813, parcela:1050.52},
+    {valor:75749, parcela:1078.07},
+    {valor:89522, parcela:1274.09},
+    {valor:96408, parcela:1372.09},
+    {valor:103295, parcela:1470.11},
+    {valor:108046, parcela:1537.73},
+    {valor:117067, parcela:1666.11},
+    {valor:118100, parcela:1680.82},
+    {valor:123953, parcela:1764.12}
+];
+
+function simular(){
+    const valor = parseFloat(document.getElementById('valorDesejado').value);
+    if(isNaN(valor) || valor < 61977){
+        document.getElementById('resultado').innerText = 'Valor mínimo é R$61.977,00.';
+        return;
+    }
+    if(valor <= 123953){
+        let carta = cartas.reduce((prev,curr)=> Math.abs(curr.valor-valor)<Math.abs(prev.valor-valor)?curr:prev);
+        document.getElementById('resultado').innerText = `Sugestão: Carta de R$${carta.valor.toLocaleString()} com parcela de R$${carta.parcela.toFixed(2)}.`;
+    } else if(valor <= 247906){
+        let melhorComb = [cartas[0], cartas[0]];
+        let menorDif = Infinity;
+        for(let i=0;i<cartas.length;i++){
+            for(let j=0;j<cartas.length;j++){
+                let soma = cartas[i].valor+cartas[j].valor;
+                let dif = Math.abs(soma-valor);
+                if(dif<menorDif){
+                    menorDif=dif;
+                    melhorComb=[cartas[i],cartas[j]];
+                }
+            }
+        }
+        document.getElementById('resultado').innerText = `Sugestão: 2 cartas -> R$${melhorComb[0].valor.toLocaleString()} (R$${melhorComb[0].parcela.toFixed(2)}) + R$${melhorComb[1].valor.toLocaleString()} (R$${melhorComb[1].parcela.toFixed(2)}). Total aproximado: R$${(melhorComb[0].valor+melhorComb[1].valor).toLocaleString()}.`;
+    } else {
+        let melhorComb = [cartas[0], cartas[0], cartas[0]];
+        let menorDif = Infinity;
+        for(let i=0;i<cartas.length;i++){
+            for(let j=0;j<cartas.length;j++){
+                for(let k=0;k<cartas.length;k++){
+                    let soma = cartas[i].valor+cartas[j].valor+cartas[k].valor;
+                    let dif = Math.abs(soma-valor);
+                    if(dif<menorDif){
+                        menorDif=dif;
+                        melhorComb=[cartas[i],cartas[j],cartas[k]];
+                    }
+                }
+            }
+        }
+        document.getElementById('resultado').innerText = `Sugestão: 3 cartas -> R$${melhorComb[0].valor.toLocaleString()} (R$${melhorComb[0].parcela.toFixed(2)}), R$${melhorComb[1].valor.toLocaleString()} (R$${melhorComb[1].parcela.toFixed(2)}), R$${melhorComb[2].valor.toLocaleString()} (R$${melhorComb[2].parcela.toFixed(2)}). Total aproximado: R$${(melhorComb[0].valor+melhorComb[1].valor+melhorComb[2].valor).toLocaleString()}.`;
+    }
+}
+
+function enviarWhatsApp(){
+    const nome=document.getElementById('nome').value;
+    const telefone=document.getElementById('telefone').value;
+    const email=document.getElementById('email').value;
+    const valor=document.getElementById('valorDesejado').value;
+    const msg=`Olá, meu nome é ${nome}. Quero saber mais sobre consórcio Honda. Valor desejado: R$${valor}. Meu telefone: ${telefone}, e-mail: ${email}.`;
+    const url=`https://wa.me/5541989045115?text=${encodeURIComponent(msg)}`;
+    window.open(url,'_blank');
+}
+</script>
+</body>
+</html>
