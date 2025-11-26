@@ -76,7 +76,10 @@ const cartas = [
 
 function simular(){
     let valorInput = document.getElementById('valorDesejado').value;
-    let valor = parseFloat(valorInput.replace(/[^0-9]/g, ''));
+    // Remove R$, espaços e substitui vírgula por ponto, remove pontos de milhar
+    valorInput = valorInput.replace(/R\$|\s/g, '').replace(/\./g, '').replace(/,/g, '.');
+    let valor = parseFloat(valorInput);
+
     if(isNaN(valor) || valor < 61977){
         document.getElementById('resultado').innerText = 'Valor mínimo é R$61.977,00.';
         return;
