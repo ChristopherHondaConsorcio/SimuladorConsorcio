@@ -76,8 +76,12 @@ const cartas = [
 
 function simular(){
     let valorInput = document.getElementById('valorDesejado').value;
-    // Remove R$, espaços e substitui vírgula por ponto, remove pontos de milhar
-    valorInput = valorInput.replace(/R\$|\s/g, '').replace(/\./g, '').replace(/,/g, '.');
+    // Remove R$, espaços
+    valorInput = valorInput.replace(/R\$|\s/g, '');
+    // Remove pontos de milhar (mantém decimal)
+    valorInput = valorInput.replace(/\.(?=.*\.)/g, '');
+    // Substitui vírgula por ponto
+    valorInput = valorInput.replace(/,/g, '.');
     let valor = parseFloat(valorInput);
 
     if(isNaN(valor) || valor < 61977){
