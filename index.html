@@ -38,7 +38,17 @@
     }
     header * { position:relative; z-index:2; }
 
-    .logo { height:80px; margin-bottom:16px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
+    /* Logo maior no desktop; menor no mobile */
+    .logo{
+      height:110px;     /* aumentado de 80px para 110px */
+      width:auto;
+      margin-bottom:16px;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));
+    }
+    @media (max-width:480px){
+      .logo { height:80px; } /* mantemos menor no mobile */
+    }
+
     .avatar {
       width:120px; height:120px; border-radius:50%; object-fit:cover;
       display:block; margin:0 auto 8px auto;
@@ -111,7 +121,6 @@
 
     /* ====== RESPONSIVIDADE ====== */
     @media (max-width:480px){
-      .logo { height:70px; }
       .avatar { width:108px; height:108px; }
       header h1 { font-size:22px; }
       .sub { font-size:16px; }
@@ -122,11 +131,11 @@
 <body>
 
   <header>
-    <!-- LOGO NO TOPO -->
+    <!-- LOGO NO TOPO (maior) -->
     <img src="./logo.png" alt="Logo Honda Niponsul" class="logo"/>
 
     <!-- SUA FOTO -->
-    <img src="./foto.jpg" alt="Foto de Christopher Norat" class="avatar"/>
+    <img src="./foto.jpg" alt="Foto de Christopher" class="avatar"/>
 
     <!-- TEXTOS -->
     <p class="sub" style="font-weight:700;">Consultor de Consórcio Christopher</p>
