@@ -3,311 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consórcio Honda Niponsul | Christopher</title>
+<title>Consórcio Honda | Christopher Norat</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
-
 body{
-background:#0d0d0d;
-color:#fff;
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+    text-align:center;
 }
 
-/* HEADER */
-
-.header{
-background:#000;
-padding:15px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
+header{
+    background:white;
+    padding:30px 20px;
 }
 
-.logos{
-display:flex;
-align-items:center;
-gap:20px;
+.logo{
+    width:200px;
+    margin-bottom:10px;
 }
 
-.logos img{
-height:50px;
+.foto{
+    width:170px;
+    height:170px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #e30613;
+    margin-top:15px;
 }
 
-.whatsapp-topo{
-background:#e10600;
-padding:10px 20px;
-border-radius:30px;
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
+.nome{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:10px;
 }
 
-.whatsapp-topo:hover{
-background:#ff2a2a;
-}
-
-/* HERO */
-
-.hero{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:60px 30px;
-flex-wrap:wrap;
-}
-
-.hero-text{
-max-width:550px;
-}
-
-.hero h1{
-font-size:38px;
-color:#e10600;
-}
-
-.hero h2{
-margin-top:10px;
-font-size:22px;
-font-weight:normal;
+.subtitulo{
+    font-size:18px;
+    margin-top:10px;
+    color:#444;
 }
 
 .selo{
-margin-top:15px;
-display:inline-block;
-background:#e10600;
-padding:8px 15px;
-border-radius:20px;
-font-size:14px;
+    background:#e30613;
+    color:white;
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    margin-top:15px;
 }
-
-.hero img{
-width:260px;
-height:260px;
-object-fit:cover;
-border-radius:50%;
-border:5px solid #e10600;
-box-shadow:0 0 30px rgba(225,6,0,0.5);
-}
-
-/* SECTIONS */
-
-.section{
-padding:60px 30px;
-text-align:center;
-}
-
-.section h2{
-color:#e10600;
-margin-bottom:30px;
-}
-
-/* CARDS */
 
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin:30px 10px;
 }
 
 .card{
-background:#1a1a1a;
-padding:25px;
-border-radius:15px;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
-transition:0.4s;
-opacity:0;
-transform:translateY(20px);
-animation:fadeUp 0.6s forwards;
+    background:white;
+    width:260px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 20px rgba(225,6,0,0.5);
+    transform:translateY(-5px);
 }
 
-@keyframes fadeUp{
-to{opacity:1;transform:translateY(0);}
+.valor{
+    font-size:20px;
+    font-weight:bold;
 }
 
-/* SIMULADOR */
-
-.simulador input{
-padding:12px;
-width:100%;
-max-width:300px;
-border-radius:10px;
-border:none;
-margin-top:10px;
-text-align:center;
-font-size:16px;
+.parcela{
+    color:#e30613;
+    margin-top:5px;
 }
 
-.simulador button{
-margin-top:15px;
-padding:12px 25px;
-border:none;
-background:#e10600;
-color:#fff;
-border-radius:30px;
-cursor:pointer;
-font-weight:bold;
-transition:0.3s;
+.simulador{
+    margin:40px 20px;
 }
 
-.simulador button:hover{
-background:#ff2a2a;
+input{
+    padding:10px;
+    width:250px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    background:#e30613;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    margin-left:10px;
 }
 
 .resultado{
-margin-top:20px;
-font-size:18px;
-}
-
-/* CREDIBILIDADE */
-
-.credibilidade{
-background:#111;
-}
-
-footer{
-background:#000;
-padding:30px;
-text-align:center;
-font-size:14px;
-}
-
-@media(max-width:768px){
-.hero{
-flex-direction:column;
-text-align:center;
-gap:30px;
-}
+    margin-top:20px;
+    font-weight:bold;
+    font-size:18px;
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
-<div class="logos">
-<img src="honda-consorcio.png">
-<img src="logo.png">
-</div>
-<a class="whatsapp-topo" href="https://wa.me/5541989045115" target="_blank">
-Fale no WhatsApp
-</a>
+<header>
+
+<img src="logo.png" class="logo">
+
+<h2>Consórcio Nacional Honda</h2>
+
+<p class="subtitulo">
+Opções de crédito a partir de <strong>R$ 887,19 por mês</strong>
+</p>
+
+<img src="foto.jpg" class="foto">
+
+<div class="nome">Consultor Christopher</div>
+
+<div class="selo">🏆 Especialista Consórcio Honda</div>
+
 </header>
 
-<section class="hero">
-<div class="hero-text">
-<h1>Consultor Christopher</h1>
-<h2>Consórcio Honda Automóveis</h2>
-<div class="selo">Especialista Consórcio Honda</div>
-<p style="margin-top:20px;">
-Planeje seu carro novo com segurança, parcelas acessíveis e condições exclusivas.
-</p>
-</div>
-<img src="foto.jpg" alt="Christopher">
+<section class="cards">
+
+<div class="card"><div class="valor">R$ 62.337,00</div><div class="parcela">84x R$ 887,19</div></div>
+<div class="card"><div class="valor">R$ 75.063,00</div><div class="parcela">84x R$ 1.068,31</div></div>
+<div class="card"><div class="valor">R$ 76.189,00</div><div class="parcela">84x R$ 1.084,33</div></div>
+<div class="card"><div class="valor">R$ 90.042,00</div><div class="parcela">84x R$ 1.281,49</div></div>
+<div class="card"><div class="valor">R$ 96.968,00</div><div class="parcela">84x R$ 1.380,06</div></div>
+<div class="card"><div class="valor">R$ 103.895,00</div><div class="parcela">84x R$ 1.478,65</div></div>
+<div class="card"><div class="valor">R$ 110.126,00</div><div class="parcela">84x R$ 1.567,33</div></div>
+<div class="card"><div class="valor">R$ 117.747,00</div><div class="parcela">84x R$ 1.675,79</div></div>
+<div class="card"><div class="valor">R$ 120.100,00</div><div class="parcela">84x R$ 1.709,28</div></div>
+<div class="card"><div class="valor">R$ 124.673,00</div><div class="parcela">84x R$ 1.774,36</div></div>
+
 </section>
 
-<section class="section">
-<h2>Cartas Disponíveis - Plano 84 Meses</h2>
-<div class="cards" id="cardsCartas"></div>
-</section>
+<section class="simulador">
 
-<section class="section simulador">
-<h2>Simule seu Crédito</h2>
+<h3>Simular valor desejado</h3>
+
 <input type="number" id="valorDesejado" placeholder="Digite o valor desejado">
-<br>
 <button onclick="simular()">Simular</button>
+
 <div class="resultado" id="resultado"></div>
-</section>
 
-<section class="section credibilidade">
-<h2>Credibilidade Honda</h2>
-<p>45 anos de Consórcio Honda</p>
-<p>+ de 9 milhões de contemplados</p>
-<p>Grupos reduzidos com apenas 252 participantes</p>
-<p>Use seu carro como lance</p>
-<p>Contemplação garantida dentro do prazo</p>
-<p>Liberdade para escolher 0km ou seminovo</p>
 </section>
-
-<footer>
-Honda Niponsul - Curitiba<br>
-WhatsApp: (41) 98904-5115
-</footer>
 
 <script>
 
 const cartas = [
-{credito:50042, parcela:911.77},
-{credito:60051, parcela:1094.13},
-{credito:70060, parcela:1276.48},
-{credito:75063, parcela:1367.66},
-{credito:80068, parcela:1458.84},
-{credito:90077, parcela:1641.20},
-{credito:100085, parcela:1823.55},
-{credito:110094, parcela:2005.91},
-{credito:120102, parcela:2188.26},
-{credito:124673, parcela:2271.51}
+{credito:62337, parcela:887.19},
+{credito:75063, parcela:1068.31},
+{credito:76189, parcela:1084.33},
+{credito:90042, parcela:1281.49},
+{credito:96968, parcela:1380.06},
+{credito:103895, parcela:1478.65},
+{credito:110126, parcela:1567.33},
+{credito:117747, parcela:1675.79},
+{credito:120100, parcela:1709.28},
+{credito:124673, parcela:1774.36}
 ];
-
-function carregarCards(){
-let container = document.getElementById("cardsCartas");
-cartas.forEach((c,index)=>{
-let card = document.createElement("div");
-card.className="card";
-card.style.animationDelay = (index*0.1)+"s";
-card.innerHTML=`
-<h3>R$ ${c.credito.toLocaleString('pt-BR')}</h3>
-<p style="margin-top:10px;">
-Parcela:<br>
-<strong>R$ ${c.parcela.toLocaleString('pt-BR',{minimumFractionDigits:2})}</strong>
-</p>`;
-container.appendChild(card);
-});
-}
-carregarCards();
 
 function simular(){
 let valor = parseFloat(document.getElementById("valorDesejado").value);
-let resultado = document.getElementById("resultado");
-
-if(!valor){resultado.innerHTML="Digite um valor válido."; return;}
-
-let melhorCombinacao = null;
+let melhor = null;
 let menorDiferenca = Infinity;
 
-for(let i of cartas){
-for(let j of cartas){
-for(let k of cartas){
+for(let i=0;i<cartas.length;i++){
+for(let j=0;j<cartas.length;j++){
+for(let k=0;k<cartas.length;k++){
 
-let somaCredito = i.credito + j.credito + k.credito;
-let diferenca = Math.abs(valor - somaCredito);
+let soma = cartas[i].credito + cartas[j].credito + cartas[k].credito;
+let parcelas = cartas[i].parcela + cartas[j].parcela + cartas[k].parcela;
+let diferenca = Math.abs(valor - soma);
 
 if(diferenca < menorDiferenca){
 menorDiferenca = diferenca;
-melhorCombinacao = [i,j,k];
+melhor = {soma, parcelas};
 }
 
-}
-}
-}
+}}}
 
-let somaCred = melhorCombinacao[0].credito + melhorCombinacao[1].credito + melhorCombinacao[2].credito;
-let somaParc = melhorCombinacao[0].parcela + melhorCombinacao[1].parcela + melhorCombinacao[2].parcela;
-
-resultado.innerHTML = `
-Sugestão:<br><br>
-Crédito Total: <strong>R$ ${somaCred.toLocaleString('pt-BR')}</strong><br>
-Parcela Total (84x): <strong>R$ ${somaParc.toLocaleString('pt-BR',{minimumFractionDigits:2})}</strong><br><br>
-<a href="https://wa.me/5541989045115?text=Tenho interesse em ${somaCred}" target="_blank" style="color:#e10600;font-weight:bold;">
-Falar com Consultor Christopher
-</a>
-`;
+document.getElementById("resultado").innerHTML =
+"Sugestão aproximada: R$ " + melhor.soma.toLocaleString('pt-BR') +
+"<br>Soma das parcelas: R$ " + melhor.parcelas.toLocaleString('pt-BR');
 }
 
 </script>
