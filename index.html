@@ -1,73 +1,72 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consórcio Honda | Christopher Norat</title>
 
-<!-- Facebook Pixel (cole seu ID no lugar de PIXEL_ID) -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'PIXEL_ID');
-  fbq('track', 'PageView');
-</script>
-
 <style>
 body{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:#0b0b0b;
-    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#000;
+    color:#fff;
 }
 header{
-    background:black;
-    padding:15px;
     text-align:center;
-    border-bottom:2px solid #c40000;
+    padding:20px;
+    border-bottom:2px solid red;
 }
-h1 span{color:#e10600;}
-.section{
-    padding:30px 20px;
+h1,h2{
     text-align:center;
 }
-.button{
-    background:#e10600;
-    color:white;
-    padding:15px 25px;
-    border:none;
-    border-radius:8px;
+.hero{
+    padding:60px 20px;
+    text-align:center;
+    background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url("foto.jpg");
+    background-size:cover;
+    background-position:center;
+}
+.hero span{
+    color:red;
+    font-size:42px;
     font-weight:bold;
-    cursor:pointer;
-    text-decoration:none;
+}
+.btn{
     display:inline-block;
-    margin-top:15px;
+    background:red;
+    padding:15px 30px;
+    margin-top:20px;
+    border-radius:8px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:bold;
+}
+.section{
+    padding:50px 20px;
 }
 .card{
-    background:#1a1a1a;
-    padding:20px;
+    background:#111;
     margin:15px auto;
-    border-radius:12px;
+    padding:20px;
     max-width:400px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(255,0,0,0.4);
+    text-align:center;
 }
-input, select{
-    width:100%;
+input{
     padding:12px;
-    margin:8px 0;
-    border-radius:6px;
+    width:80%;
+    max-width:300px;
+    margin:10px 0;
+    border-radius:8px;
     border:none;
 }
-ul{
-    text-align:left;
-    max-width:600px;
-    margin:0 auto;
+footer{
+    text-align:center;
+    padding:20px;
+    border-top:2px solid red;
+    margin-top:40px;
 }
 </style>
 </head>
@@ -75,73 +74,87 @@ ul{
 <body>
 
 <header>
-<h1><span>HONDA</span> Niponsul</h1>
-<p>Consórcio Honda Automóveis</p>
+<h2>HONDA Niponsul</h2>
 </header>
 
-<div class="section">
-<h2>Parcelas a partir de <span style="color:#e10600;">R$ 887/mês</span></h2>
-<p>Conquiste seu Honda com planejamento, sem juros e com atendimento especializado em Curitiba.</p>
-<a class="button" href="https://wa.me/5541989045115" target="_blank">SIMULAR NO WHATSAPP</a>
-</div>
+<section class="hero">
+<h1>Parcelas a partir de</h1>
+<span>R$ 887/mês</span>
+<p>Conquiste seu Honda com planejamento, sem juros e atendimento especializado em Curitiba.</p>
+<a class="btn" href="https://wa.me/5541989045115" target="_blank">SIMULAR NO WHATSAPP</a>
+</section>
 
-<div class="section">
-<h2>Simulador de Parcelas</h2>
+<section class="section">
+<h2>Simulador de Crédito (84 meses)</h2>
+
+<input type="number" id="valorDesejado" placeholder="Digite o valor desejado">
+<br>
+<button class="btn" onclick="simular()">SIMULAR</button>
+
+<div id="resultado"></div>
+</section>
+
+<section class="section">
+<h2>Credibilidade Honda</h2>
+
 <div class="card">
-<input type="number" id="credito" placeholder="Valor da Carta (ex: 90000)">
-<select id="prazo">
-<option value="84">84 meses</option>
-<option value="72">72 meses</option>
-<option value="60">60 meses</option>
-</select>
-<button class="button" onclick="simular()">Calcular Parcela</button>
-<p id="resultado"></p>
-</div>
+<p><strong>45 anos de tradição</strong></p>
+<p><strong>+ de 9 milhões de contemplados</strong></p>
 </div>
 
-<div class="section">
-<h2>Prova Social</h2>
-<p><strong>45 anos</strong> de Consórcio Honda</p>
-<p><strong>+ de 9 milhões</strong> de contemplados</p>
-</div>
-
-<div class="section">
-<h2>Vantagens do Consórcio Honda</h2>
-<ul>
-<li>Grupos pequenos com apenas 252 participantes</li>
-<li>Seu carro usado como lance</li>
-<li>Contemplação garantida dentro do prazo do grupo</li>
-<li>Liberdade para escolher 0km ou seminovo (Honda até 5 anos e outras marcas até 3 anos)</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>Receba uma simulação personalizada</h2>
 <div class="card">
-<input type="text" placeholder="Seu nome">
-<input type="tel" placeholder="Seu WhatsApp">
-<input type="email" placeholder="Seu e-mail">
-<button class="button" onclick="fbq('track', 'Lead')">Quero receber</button>
+<p>✔ Grupos pequenos: apenas 252 participantes</p>
+<p>✔ Seu carro usado como lance</p>
+<p>✔ Contemplação garantida dentro do prazo do grupo</p>
+<p>✔ Liberdade de escolha: 0km ou seminovo (Honda até 5 anos e outras marcas até 3 anos)</p>
 </div>
-</div>
+</section>
 
-<div class="section">
-<p>Contato: (41) 98904-5115</p>
-<p>Instagram: @seuinstagram</p>
-</div>
+<footer>
+Christopher Norat | Consultor de Consórcio Honda <br>
+WhatsApp: (41) 98904-5115 <br>
+Instagram: @christopher_hondaconsorcio
+</footer>
 
 <script>
+
+// CARTAS OFICIAIS 84 MESES
+const cartas = [
+{credito:62337, parcela:887.19},
+{credito:75063, parcela:1068.31},
+{credito:76189, parcela:1084.33},
+{credito:90042, parcela:1281.49},
+{credito:96968, parcela:1380.06},
+{credito:103895, parcela:1478.65},
+{credito:110126, parcela:1567.33},
+{credito:117747, parcela:1675.79},
+{credito:120100, parcela:1709.28},
+{credito:124673, parcela:1774.36}
+];
+
 function simular(){
-    let credito = document.getElementById("credito").value;
-    let prazo = document.getElementById("prazo").value;
-    if(credito && prazo){
-        let parcela = (credito / prazo) * 1.20;
-        document.getElementById("resultado").innerHTML = 
-        "Parcela estimada: R$ " + parcela.toFixed(2);
-    } else {
-        document.getElementById("resultado").innerHTML = "Preencha os campos corretamente.";
-    }
+let valor = document.getElementById("valorDesejado").value;
+if(!valor){ return; }
+
+valor = parseFloat(valor);
+
+// encontra a carta mais próxima
+let maisProxima = cartas.reduce((prev, curr) =>
+Math.abs(curr.credito - valor) < Math.abs(prev.credito - valor) ? curr : prev
+);
+
+document.getElementById("resultado").innerHTML = `
+<div class="card">
+<h2>Carta mais próxima: R$ ${maisProxima.credito.toLocaleString('pt-BR')}</h2>
+<p>Prazo: 84 meses</p>
+<p>Parcela: R$ ${maisProxima.parcela.toLocaleString('pt-BR')}</p>
+<a class="btn" href="https://wa.me/5541989045115?text=Olá Christopher, quero simular a carta de R$ ${maisProxima.credito}" target="_blank">
+QUERO SIMULAR ESSA
+</a>
+</div>
+`;
 }
+
 </script>
 
 </body>
