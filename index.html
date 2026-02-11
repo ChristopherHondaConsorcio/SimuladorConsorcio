@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consórcio Honda | Christopher Norat</title>
+<title>Consultor Christopher | Consórcio Honda</title>
 
 <style>
 *{
@@ -64,19 +64,22 @@ max-width:600px;
 }
 
 .hero-text h1{
-font-size:42px;
-margin-bottom:10px;
+font-size:38px;
 }
 
 .hero-text h2{
-font-size:50px;
+color:#ff1a1a;
+margin:5px 0 15px 0;
+}
+
+.hero-text h3{
+font-size:48px;
 color:#ff1a1a;
 margin-bottom:20px;
 }
 
 .hero-text p{
-font-size:18px;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .hero-text a{
@@ -88,13 +91,26 @@ text-decoration:none;
 font-weight:bold;
 }
 
-.hero img{
-width:350px;
-border-radius:15px;
-box-shadow:0 0 25px rgba(0,0,0,0.7);
+.selo{
+display:inline-block;
+margin-top:15px;
+padding:8px 15px;
+background:#ff1a1a;
+border-radius:20px;
+font-size:14px;
+font-weight:bold;
 }
 
-/* PLANOS */
+.hero img{
+width:260px;
+height:260px;
+object-fit:cover;
+border-radius:50%;
+border:5px solid #e60000;
+box-shadow:0 0 30px rgba(0,0,0,0.8);
+}
+
+/* SIMULADOR */
 
 .section{
 padding:60px 40px;
@@ -103,44 +119,8 @@ text-align:center;
 
 .section h2{
 color:#ff1a1a;
-margin-bottom:40px;
-font-size:32px;
+margin-bottom:30px;
 }
-
-.planos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#1a1a1f;
-padding:30px;
-border-radius:15px;
-box-shadow:0 0 20px rgba(0,0,0,0.6);
-}
-
-.card h3{
-font-size:26px;
-color:#ff1a1a;
-margin-bottom:10px;
-}
-
-.card p{
-font-size:18px;
-margin-bottom:15px;
-}
-
-.card a{
-background:#e60000;
-padding:12px 20px;
-border-radius:6px;
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* SIMULADOR */
 
 .simulador input{
 padding:12px;
@@ -160,8 +140,29 @@ font-weight:bold;
 }
 
 #resultado{
-margin-top:20px;
+margin-top:25px;
 font-size:18px;
+line-height:1.6;
+}
+
+/* ANIMAÇÃO CARDS */
+
+.card{
+background:#1a1a1f;
+padding:25px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+margin-top:20px;
+opacity:0;
+transform:translateY(20px);
+animation:fadeUp 0.6s forwards;
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 
 /* CREDIBILIDADE */
@@ -177,8 +178,7 @@ text-align:center;
 }
 
 .credibilidade li{
-margin:15px 0;
-font-size:18px;
+margin:12px 0;
 }
 
 /* FOOTER */
@@ -190,7 +190,7 @@ text-align:center;
 border-top:2px solid #e60000;
 }
 
-/* WHATSAPP FIXO */
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
@@ -214,7 +214,6 @@ text-align:center;
 
 .hero img{
 margin-top:30px;
-width:250px;
 }
 }
 </style>
@@ -224,37 +223,33 @@ width:250px;
 
 <header>
 <div class="logos">
-<img src="honda-consorcio.png" alt="Honda Consórcio">
-<img src="logo.png" alt="Honda Niponsul">
+<img src="honda-consorcio.png">
+<img src="logo.png">
 </div>
 <a href="https://wa.me/5541989045115" target="_blank">FALAR NO WHATSAPP</a>
 </header>
 
 <section class="hero">
 <div class="hero-text">
-<h1>Parcelas a partir de</h1>
-<h2>R$ 887/mês</h2>
-<p>Conquiste seu Honda com planejamento, sem juros e atendimento especializado em Curitiba.</p>
+<h1>Consultor Christopher Norat</h1>
+<h2>Consórcio Honda Automóveis</h2>
+<h3>Parcelas a partir de R$ 887/mês</h3>
+<p>Planejamento inteligente para conquistar seu Honda 0km ou seminovo.</p>
 <a href="https://wa.me/5541989045115" target="_blank">SIMULAR AGORA</a>
+<div class="selo">🏆 Especialista Consórcio Honda</div>
 </div>
-
-<img src="foto.jpg" alt="Christopher Norat">
-</section>
-
-<section class="section">
-<h2>Planos Oficiais - 84 Meses</h2>
-<div class="planos" id="planos"></div>
+<img src="foto.jpg">
 </section>
 
 <section class="section simulador">
-<h2>Simulador Oficial Honda</h2>
+<h2>Simulador Inteligente - 84 Meses</h2>
 <input type="number" id="valorDesejado" placeholder="Digite o valor desejado">
 <button onclick="simular()">Simular</button>
-<p id="resultado"></p>
+<div id="resultado"></div>
 </section>
 
 <section class="credibilidade">
-<h2 style="color:#ff1a1a; text-align:center;">Credibilidade Honda</h2>
+<h2 style="color:#ff1a1a;">Credibilidade Honda</h2>
 <ul>
 <li>✔ 45 anos de tradição no Consórcio Honda</li>
 <li>✔ + de 9 milhões de contemplados</li>
@@ -266,8 +261,8 @@ width:250px;
 </section>
 
 <footer>
-<p><strong>Christopher Norat</strong></p>
-<p>Consultor de Consórcio Honda - Niponsul</p>
+<p><strong>Consultor Christopher Norat</strong></p>
+<p>Consórcio Honda - Niponsul</p>
 <p>📞 (41) 98904-5115</p>
 <p>Instagram: @christopher_hondaconsorcio</p>
 </footer>
@@ -275,7 +270,8 @@ width:250px;
 <a class="whatsapp" href="https://wa.me/5541989045115" target="_blank">💬</a>
 
 <script>
-const planos = [
+
+const cartas = [
 {credito:62337, parcela:887.19},
 {credito:75063, parcela:1068.31},
 {credito:76189, parcela:1084.33},
@@ -288,30 +284,57 @@ const planos = [
 {credito:124673, parcela:1774.36}
 ];
 
-const container = document.getElementById("planos");
-
-planos.forEach(p=>{
-container.innerHTML += `
-<div class="card">
-<h3>R$ ${p.credito.toLocaleString('pt-BR')}</h3>
-<p>Parcela: R$ ${p.parcela.toLocaleString('pt-BR',{minimumFractionDigits:2})}</p>
-<a href="https://wa.me/5541989045115?text=Olá Christopher, quero saber mais sobre a carta de R$ ${p.credito}" target="_blank">QUERO ESSE PLANO</a>
-</div>
-`;
-});
-
 function simular(){
 let valor = parseFloat(document.getElementById("valorDesejado").value);
 if(!valor) return;
 
-let maisProximo = planos.reduce((prev,curr)=>
-Math.abs(curr.credito-valor)<Math.abs(prev.credito-valor)?curr:prev
-);
+let melhorCombo = [];
+let menorDif = Infinity;
 
-document.getElementById("resultado").innerHTML =
-`Plano mais próximo: <strong>R$ ${maisProximo.credito.toLocaleString('pt-BR')}</strong>
-<br>Parcela: <strong>R$ ${maisProximo.parcela.toLocaleString('pt-BR',{minimumFractionDigits:2})}</strong>`;
+for(let i=0;i<cartas.length;i++){
+for(let j=i;j<cartas.length;j++){
+for(let k=j;k<cartas.length;k++){
+
+let combos = [
+[cartas[i]],
+[cartas[i], cartas[j]],
+[cartas[i], cartas[j], cartas[k]]
+];
+
+combos.forEach(c=>{
+let total = c.reduce((sum,item)=>sum+item.credito,0);
+let diff = Math.abs(valor-total);
+
+if(diff < menorDif){
+menorDif = diff;
+melhorCombo = c;
 }
+});
+
+}
+}
+}
+
+let totalCredito = melhorCombo.reduce((s,i)=>s+i.credito,0);
+let totalParcela = melhorCombo.reduce((s,i)=>s+i.parcela,0);
+
+let descricaoCartas = melhorCombo.map(c =>
+`R$ ${c.credito.toLocaleString('pt-BR')}`
+).join(" + ");
+
+document.getElementById("resultado").innerHTML = `
+<div class="card">
+<strong>Melhor combinação aproximada:</strong><br><br>
+Cartas: ${descricaoCartas}<br>
+Total de crédito: <strong>R$ ${totalCredito.toLocaleString('pt-BR')}</strong><br>
+Soma das parcelas: <strong>R$ ${totalParcela.toLocaleString('pt-BR',{minimumFractionDigits:2})}</strong><br><br>
+<a href="https://wa.me/5541989045115?text=Olá Christopher, quero simular essa combinação de cartas." target="_blank" style="background:#e60000;padding:10px 20px;border-radius:6px;color:white;text-decoration:none;">
+QUERO ESSA SIMULAÇÃO
+</a>
+</div>
+`;
+}
+
 </script>
 
 </body>
