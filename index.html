@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Consórcio Honda | Christopher Norat</title>
 
-  <!-- Fonte Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
@@ -40,13 +42,13 @@
 
     /* Logo maior no desktop; menor no mobile */
     .logo{
-      height:110px;     /* aumentado de 80px para 110px */
+      height:110px;
       width:auto;
       margin-bottom:16px;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));
     }
     @media (max-width:480px){
-      .logo { height:80px; } /* mantemos menor no mobile */
+      .logo { height:80px; }
     }
 
     .avatar {
@@ -57,7 +59,7 @@
     }
 
     header h1 { font-size:28px; font-weight:800; margin-top:22px; color:#fff; }
-    .destaque { color:#ff4d4d; } /* tom mais claro para contraste */
+    .destaque { color:#ff4d4d; }
     .sub { font-size:18px; color:#e9e9e9; margin-top:5px; }
 
     /* Botão WhatsApp */
@@ -89,6 +91,7 @@
       box-shadow:0 6px 20px rgba(0,0,0,0.08); transition:0.3s;
     }
     .card:hover { transform:translateY(-8px); box-shadow:0 12px 30px rgba(0,0,0,0.15); }
+    .card.clickable { cursor:pointer; }
 
     .valor { font-size:24px; font-weight:800; }
     .parcela { margin-top:10px; font-size:18px; color:#555; }
@@ -108,6 +111,29 @@
     }
     .btn:hover { filter:brightness(.95); }
     .resultado { margin-top:20px; font-size:18px; font-weight:600; }
+
+    /* Estilo da listagem de combinação no resultado */
+    .resultado .detalhes {
+      margin-top:10px;
+      background:#fafafa;
+      border:1px solid #eee;
+      border-radius:10px;
+      padding:12px 14px;
+      font-weight:400;
+      color:#333;
+    }
+    .resultado ul { margin:8px 0 0 20px; }
+    .resultado li { margin:4px 0; }
+    .badge {
+      display:inline-block;
+      background:#eee;
+      color:#333;
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:12px;
+      font-weight:600;
+      margin-left:6px;
+    }
 
     .secao { margin-top:70px; }
     .secao h2 { font-size:24px; margin-bottom:20px; }
@@ -132,19 +158,19 @@
 
   <header>
     <!-- LOGO NO TOPO (maior) -->
-    <img src="./logo.png" alt="Logo Honda Niponsul" class="logo"/>
+    <img src="./logo.png" alt="Logo Honda Niponsul" class="logo">
 
     <!-- SUA FOTO -->
-    <img src="./foto.jpg" alt="Foto de Christopher" class="avatar"/>
+    <img src="./foto.jpg" alt="Foto de Christopher Norat" class="avatar">
 
     <!-- TEXTOS -->
     <p class="sub" style="font-weight:700;">Consultor de Consórcio Christopher</p>
     <p class="sub">🏅 Especialista Consórcio Honda</p>
 
     <!-- BOTÃO WHATSAPP -->
-    <a class="btn-whatsapp" href="https://wa.me/5541989045115" target="_blank" rel="noopener">
+    <a class="btn-whatsapp" href="https://wa.me/5541989045115?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20Cons%C3%B3rcio%20Honda." target="_blank" rel="noopener noreferrer">
       <span class="icon">💬</span>
-      Falar no WhatsApp
+      Falar no WhatsApp (41) 98904-5115
     </a>
 
     <!-- Headline principal -->
@@ -153,18 +179,47 @@
 
   <div class="container">
 
-    <!-- CARDS DE CRÉDITO (84x) -->
+    <!-- CARDS DE CRÉDITO (84x) — CLICÁVEIS PARA WHATS -->
     <div class="grid">
-      <div class="card"><div class="valor">R$ 62.337,00</div><div class="parcela">84x de R$ 887,19</div></div>
-      <div class="card"><div class="valor">R$ 75.063,00</div><div class="parcela">84x de R$ 1.068,31</div></div>
-      <div class="card"><div class="valor">R$ 76.189,00</div><div class="parcela">84x de R$ 1.084,33</div></div>
-      <div class="card"><div class="valor">R$ 90.042,00</div><div class="parcela">84x de R$ 1.281,49</div></div>
-      <div class="card"><div class="valor">R$ 96.968,00</div><div class="parcela">84x de R$ 1.380,06</div></div>
-      <div class="card"><div class="valor">R$ 103.895,00</div><div class="parcela">84x de R$ 1.478,65</div></div>
-      <div class="card"><div class="valor">R$ 110.126,00</div><div class="parcela">84x de R$ 1.567,33</div></div>
-      <div class="card"><div class="valor">R$ 117.747,00</div><div class="parcela">84x de R$ 1.675,79</div></div>
-      <div class="card"><div class="valor">R$ 120.100,00</div><div class="parcela">84x de R$ 1.709,28</div></div>
-      <div class="card"><div class="valor">R$ 124.673,00</div><div class="parcela">84x de R$ 1.774,36</div></div>
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 62.337,00" onclick="whatsCard(62337)" onkeypress="if(event.key==='Enter'){whatsCard(62337)}">
+        <div class="valor">R$ 62.337,00</div><div class="parcela">84x de R$ 887,19</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 75.063,00" onclick="whatsCard(75063)" onkeypress="if(event.key==='Enter'){whatsCard(75063)}">
+        <div class="valor">R$ 75.063,00</div><div class="parcela">84x de R$ 1.068,31</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 76.189,00" onclick="whatsCard(76189)" onkeypress="if(event.key==='Enter'){whatsCard(76189)}">
+        <div class="valor">R$ 76.189,00</div><div class="parcela">84x de R$ 1.084,33</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 90.042,00" onclick="whatsCard(90042)" onkeypress="if(event.key==='Enter'){whatsCard(90042)}">
+        <div class="valor">R$ 90.042,00</div><div class="parcela">84x de R$ 1.281,49</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 96.968,00" onclick="whatsCard(96968)" onkeypress="if(event.key==='Enter'){whatsCard(96968)}">
+        <div class="valor">R$ 96.968,00</div><div class="parcela">84x de R$ 1.380,06</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 103.895,00" onclick="whatsCard(103895)" onkeypress="if(event.key==='Enter'){whatsCard(103895)}">
+        <div class="valor">R$ 103.895,00</div><div class="parcela">84x de R$ 1.478,65</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 110.126,00" onclick="whatsCard(110126)" onkeypress="if(event.key==='Enter'){whatsCard(110126)}">
+        <div class="valor">R$ 110.126,00</div><div class="parcela">84x de R$ 1.567,33</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 117.747,00" onclick="whatsCard(117747)" onkeypress="if(event.key==='Enter'){whatsCard(117747)}">
+        <div class="valor">R$ 117.747,00</div><div class="parcela">84x de R$ 1.675,79</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 120.100,00" onclick="whatsCard(120100)" onkeypress="if(event.key==='Enter'){whatsCard(120100)}">
+        <div class="valor">R$ 120.100,00</div><div class="parcela">84x de R$ 1.709,28</div>
+      </div>
+
+      <div class="card clickable" role="button" tabindex="0" aria-label="Selecionar crédito de R$ 124.673,00" onclick="whatsCard(124673)" onkeypress="if(event.key==='Enter'){whatsCard(124673)}">
+        <div class="valor">R$ 124.673,00</div><div class="parcela">84x de R$ 1.774,36</div>
+      </div>
     </div>
 
     <!-- SIMULADOR -->
@@ -204,6 +259,9 @@
   </footer>
 
   <script>
+    // Configurações
+    const WHATS_NUMBER = '5541989045115';
+
     // Cartas de crédito (parcelas mensais)
     const cartas = [
       {valor:62337, parcela:887.19},
@@ -218,7 +276,20 @@
       {valor:124673, parcela:1774.36}
     ];
 
-    // Simulador: melhor combinação de 3 cartas
+    // Helpers
+    function valorBRL(n){ return n.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+    function abrirWhats(mensagem){
+      const url = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+
+    // Clique no card -> abre Whats com valor selecionado
+    function whatsCard(valor){
+      const msg = `Tenho interesse nessa opção de crédito do Consórcio Honda! Valor: R$ ${valorBRL(valor)}`;
+      abrirWhats(msg);
+    }
+
+    // Simulador: avalia 1, 2 ou 3 cartas (com repetição), mostra composição
     function simular(){
       const input = document.getElementById("valorDesejado").value;
       const desejado = parseFloat(input);
@@ -229,26 +300,74 @@
         return;
       }
 
-      let melhor = null;
+      const n = cartas.length;
+      let melhor = null; // { soma, parcela, combo: [indices], dist }
 
-      for (let i=0; i<cartas.length; i++){
-        for (let j=0; j<cartas.length; j++){
-          for (let k=0; k<cartas.length; k++){
+      // 1 carta
+      for (let i = 0; i < n; i++) {
+        const soma = cartas[i].valor;
+        const parcela = cartas[i].parcela;
+        const dist = Math.abs(desejado - soma);
+        if (!melhor || dist < melhor.dist || (dist === melhor.dist && 1 < melhor.combo.length)) {
+          melhor = { soma, parcela, combo: [i], dist };
+        }
+      }
+      // 2 cartas (com repetição, sem permuta duplicada)
+      for (let i = 0; i < n; i++) {
+        for (let j = i; j < n; j++) {
+          const soma = cartas[i].valor + cartas[j].valor;
+          const parcela = cartas[i].parcela + cartas[j].parcela;
+          const dist = Math.abs(desejado - soma);
+          if (!melhor || dist < melhor.dist || (dist === melhor.dist && 2 < melhor.combo.length)) {
+            melhor = { soma, parcela, combo: [i, j], dist };
+          }
+        }
+      }
+      // 3 cartas (com repetição, sem permuta duplicada)
+      for (let i = 0; i < n; i++) {
+        for (let j = i; j < n; j++) {
+          for (let k = j; k < n; k++) {
             const soma = cartas[i].valor + cartas[j].valor + cartas[k].valor;
-            if (!melhor || Math.abs(desejado - soma) < Math.abs(desejado - melhor.soma)) {
-              melhor = {
-                soma,
-                parcela: cartas[i].parcela + cartas[j].parcela + cartas[k].parcela
-              };
+            const parcela = cartas[i].parcela + cartas[j].parcela + cartas[k].parcela;
+            const dist = Math.abs(desejado - soma);
+            if (!melhor || dist < melhor.dist || (dist === melhor.dist && 3 < melhor.combo.length)) {
+              melhor = { soma, parcela, combo: [i, j, k], dist };
             }
           }
         }
       }
 
-      out.innerHTML =
-        "Melhor combinação: R$ " + melhor.soma.toLocaleString('pt-BR') +
-        "<br>Parcela total: 84x de R$ " + (melhor.parcela).toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+      // Detalhamento dos itens da melhor combinação
+      const itens = melhor.combo.map(idx => {
+        const c = cartas[idx];
+        return `<li>R$ ${valorBRL(c.valor)} (84x de R$ ${valorBRL(c.parcela)})</li>`;
+      }).join("");
+
+      const tipo = melhor.combo.length === 1 ? "Carta única" : `Junção de créditos (${melhor.combo.length} cartas)`;
+
+      // Botão CTA para Whats (mensagem fixa solicitada)
+      const ctaWhats = `
+        <div style="margin-top:12px;">
+          <a class="btn-whatsapp" href="https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent('Olá, quero adquirir essa opção de crédito com o Consórcio Honda!')}" target="_blank" rel="noopener noreferrer">
+            Quero Adquirir Essa Opção
+          </a>
+        </div>
+      `;
+
+      out.innerHTML = `
+        <div><strong>Opção de crédito mais próxima:</strong> R$ ${valorBRL(melhor.soma)} <span class="badge">${tipo}</span></div>
+        <div class="detalhes">
+          <div><strong>Composição:</strong></div>
+          <ul>${itens}</ul>
+          <div style="margin-top:8px;"><strong>Parcelas (84x) somadas:</strong> R$ ${valorBRL(melhor.parcela)}</div>
+        </div>
+        <div style="margin-top:6px; font-size:14px; color:#666;">
+          Valor desejado: R$ ${valorBRL(desejado)} • Diferença: R$ ${valorBRL(Math.abs(desejado - melhor.soma))}
+        </div>
+        ${ctaWhats}
+      `;
     }
   </script>
 </body>
 </html>
+``
