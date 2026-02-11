@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consórcio Honda | Christopher Norat</title>
+
+<!-- Facebook Pixel (cole seu ID no lugar de PIXEL_ID) -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'PIXEL_ID');
+  fbq('track', 'PageView');
+</script>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b0b0b;
+    color:white;
+}
+header{
+    background:black;
+    padding:15px;
+    text-align:center;
+    border-bottom:2px solid #c40000;
+}
+h1 span{color:#e10600;}
+.section{
+    padding:30px 20px;
+    text-align:center;
+}
+.button{
+    background:#e10600;
+    color:white;
+    padding:15px 25px;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:15px;
+}
+.card{
+    background:#1a1a1a;
+    padding:20px;
+    margin:15px auto;
+    border-radius:12px;
+    max-width:400px;
+}
+input, select{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:6px;
+    border:none;
+}
+ul{
+    text-align:left;
+    max-width:600px;
+    margin:0 auto;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1><span>HONDA</span> Niponsul</h1>
+<p>Consórcio Honda Automóveis</p>
+</header>
+
+<div class="section">
+<h2>Parcelas a partir de <span style="color:#e10600;">R$ 887/mês</span></h2>
+<p>Conquiste seu Honda com planejamento, sem juros e com atendimento especializado em Curitiba.</p>
+<a class="button" href="https://wa.me/5541989045115" target="_blank">SIMULAR NO WHATSAPP</a>
+</div>
+
+<div class="section">
+<h2>Simulador de Parcelas</h2>
+<div class="card">
+<input type="number" id="credito" placeholder="Valor da Carta (ex: 90000)">
+<select id="prazo">
+<option value="84">84 meses</option>
+<option value="72">72 meses</option>
+<option value="60">60 meses</option>
+</select>
+<button class="button" onclick="simular()">Calcular Parcela</button>
+<p id="resultado"></p>
+</div>
+</div>
+
+<div class="section">
+<h2>Prova Social</h2>
+<p><strong>45 anos</strong> de Consórcio Honda</p>
+<p><strong>+ de 9 milhões</strong> de contemplados</p>
+</div>
+
+<div class="section">
+<h2>Vantagens do Consórcio Honda</h2>
+<ul>
+<li>Grupos pequenos com apenas 252 participantes</li>
+<li>Seu carro usado como lance</li>
+<li>Contemplação garantida dentro do prazo do grupo</li>
+<li>Liberdade para escolher 0km ou seminovo (Honda até 5 anos e outras marcas até 3 anos)</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>Receba uma simulação personalizada</h2>
+<div class="card">
+<input type="text" placeholder="Seu nome">
+<input type="tel" placeholder="Seu WhatsApp">
+<input type="email" placeholder="Seu e-mail">
+<button class="button" onclick="fbq('track', 'Lead')">Quero receber</button>
+</div>
+</div>
+
+<div class="section">
+<p>Contato: (41) 98904-5115</p>
+<p>Instagram: @seuinstagram</p>
+</div>
+
+<script>
+function simular(){
+    let credito = document.getElementById("credito").value;
+    let prazo = document.getElementById("prazo").value;
+    if(credito && prazo){
+        let parcela = (credito / prazo) * 1.20;
+        document.getElementById("resultado").innerHTML = 
+        "Parcela estimada: R$ " + parcela.toFixed(2);
+    } else {
+        document.getElementById("resultado").innerHTML = "Preencha os campos corretamente.";
+    }
+}
+</script>
+
+</body>
+</html>
