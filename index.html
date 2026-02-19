@@ -260,38 +260,51 @@ function simular(){
   for (let i=0;i<n;i++) for (let j=i;j<n;j++) testarCombo([i,j]);
   for (let i=0;i<n;i++) for (let j=i;j<n;j++) for (let k=j;k<n;k++) testarCombo([i,j,k]);
 
-  const tipo = melhor.combo.length === 1 ? 
-    "Carta única" : 
-    `Junção de créditos (${melhor.combo.length} cartas)`;
+  const tipo = melhor.combo.length === 1 
+    ? "Carta única" 
+    : `Junção de créditos (${melhor.combo.length} cartas)`;
 
   const composicao = melhor.combo.map(idx=>{
     const c = cartas[idx];
-    return `<li>R$ ${valorBRL(c.valor)} (84x de R$ ${valorBRL(c.parcela)})</li>`;
+    return `
+      <li>
+        R$ ${valorBRL(c.valor)} 
+        <span style="color:#555;">(84x de R$ ${valorBRL(c.parcela)})</span>
+      </li>
+    `;
   }).join("");
 
   out.innerHTML = `
-    <div class="resultado-box">
-      <h2>
+    <div style="margin-top:25px; background:#f9fafb; padding:25px; border-radius:15px;">
+      
+      <h2 style="margin-bottom:15px;">
         Opção de crédito mais próxima: 
-        R$ ${valorBRL(melhor.soma)}
+        <strong>R$ ${valorBRL(melhor.soma)}</strong>
         <span class="badge">${tipo}</span>
       </h2>
 
-      <ul>${composicao}</ul>
+      <div style="margin-top:10px;">
+        <strong>Composição:</strong>
+        <ul style="margin-top:8px; padding-left:20px;">
+          ${composicao}
+        </ul>
+      </div>
 
-      <div class="parcelas-total">
+      <div style="margin-top:15px; font-size:18px; font-weight:700;">
         Parcelas (84x) somadas: R$ ${valorBRL(melhor.parcela)}
       </div>
 
-      <div class="info-extra">
+      <div style="margin-top:10px; font-size:14px; color:#555;">
         Valor desejado: R$ ${valorBRL(desejado)} • 
         Diferença: R$ ${valorBRL(melhor.dist)}
       </div>
 
-      <button class="btn-adquirir"
+      <button 
+        style="margin-top:20px; background:#22c55e; color:#fff; border:none; padding:14px; width:100%; border-radius:10px; font-weight:700; cursor:pointer;"
         onclick="abrirWhats('Tenho interesse nessa simulação de crédito no valor total de R$ ${valorBRL(melhor.soma)}')">
         Quero Adquirir Essa Opção
       </button>
+
     </div>
   `;
 }
