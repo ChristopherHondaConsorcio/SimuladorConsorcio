@@ -243,19 +243,60 @@ function simular(){
     return;
   }
 
-  let melhor = cartas[0];
+  const n = cartas.length;
+  let melhor = null;
 
-  cartas.forEach(carta => {
-    if(Math.abs(desejado - carta.valor) < Math.abs(desejado - melhor.valor)){
-      melhor = carta;
+  function testarCombo(indices){
+    let soma = 0;
+    let parcela = 0;
+
+    indices.forEach(i=>{
+      soma += cartas[i].valor;
+      parcela += cartas[i].parcela;
+    });
+
+    const dist = Math.abs(desejado - soma);
+
+    if (!melhor || dist < melhor.dist || 
+       (dist === melhor.dist && indices.length < melhor.combo.length)) {
+      melhor = { soma, parcela, combo: indices, dist };
     }
-  });
+  }
+
+  // 1 carta
+  for (let i = 0; i < n; i++) {
+    testarCombo([i]);
+  }
+
+  // 2 cartas
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < n; j++) {
+      testarCombo([i, j]);
+    }
+  }
+
+  // 3 cartas
+  for (let i = 0; i < n; i++) {
+    for (let j = i; j < n; j++) {
+      for (let k = j; k < n; k++) {
+        testarCombo([i, j, k]);
+      }
+    }
+  }
+
+  const itens = melhor.combo.map(idx=>{
+    const c = cartas[idx];
+    return `<li>R$ ${valorBRL(c.valor)} (84x de R$ ${valorBRL(c.parcela)})</li>`;
+  }).join("");
 
   out.innerHTML = `
-    <strong>Opção de crédito mais próxima:</strong> R$ ${valorBRL(melhor.valor)}<br>
-    <strong>Parcela:</strong> 84x de R$ ${valorBRL(melhor.parcela)}
+    <h3>Melhor opção para você:</h3>
+    <ul>${itens}</ul>
+    <p><strong>Total de crédito:</strong> R$ ${valorBRL(melhor.soma)}</p>
+    <p><strong>Parcela total:</strong> 84x de R$ ${valorBRL(melhor.parcela)}</p>
   `;
 }
+
 
 </script>
 
