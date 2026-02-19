@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Consórcio Honda | Christopher Norat</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -40,12 +39,7 @@
 
     header * { position:relative; z-index:2; }
 
-    .logo{
-      height:110px;
-      width:auto;
-      margin-bottom:16px;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));
-    }
+    .logo{ height:110px; width:auto; margin-bottom:16px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
 
     .avatar {
       width:120px; height:120px; border-radius:50%; object-fit:cover;
@@ -76,6 +70,7 @@
     .card {
       background:#fff; border-radius:16px; padding:30px 20px; text-align:center;
       box-shadow:0 6px 20px rgba(0,0,0,0.08); transition:0.3s;
+      cursor:pointer;
     }
 
     .card:hover { transform:translateY(-8px); box-shadow:0 12px 30px rgba(0,0,0,0.15); }
@@ -100,11 +95,20 @@
 
     .resultado { margin-top:20px; font-size:18px; font-weight:600; }
 
+    .badge {
+      display:inline-block;
+      background:#eee;
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:12px;
+      margin-left:6px;
+    }
+
     footer {
       margin-top:80px; background:#111; color:#fff; text-align:center; padding:40px 20px;
     }
 
-    .instagram { color:#ff2e2e; font-weight:700; }
+    .instagram { color:#ff2e2e; font-weight:700; text-decoration:none; }
   </style>
 </head>
 
@@ -121,16 +125,64 @@
 
 <div class="container">
 
-  <div class="grid">
-    <!-- TODOS OS SEUS CARDS ORIGINAIS AQUI (mantidos exatamente iguais) -->
+<div class="grid">
+  <div class="card" onclick="whatsCard(62337)">
+    <div class="valor">R$ 62.337,00</div>
+    <div class="parcela">84x de R$ 887,19</div>
   </div>
 
-  <div class="simulador">
-    <h2>Simule o valor de crédito desejado</h2>
-    <input type="text" id="valorDesejado" placeholder="Digite o valor desejado" />
-    <button class="btn" onclick="simular()">Simular</button>
-    <div class="resultado" id="resultado"></div>
+  <div class="card" onclick="whatsCard(75063)">
+    <div class="valor">R$ 75.063,00</div>
+    <div class="parcela">84x de R$ 1.068,31</div>
   </div>
+
+  <div class="card" onclick="whatsCard(76189)">
+    <div class="valor">R$ 76.189,00</div>
+    <div class="parcela">84x de R$ 1.084,33</div>
+  </div>
+
+  <div class="card" onclick="whatsCard(90042)">
+    <div class="valor">R$ 90.042,00</div>
+    <div class="parcela">84x de R$ 1.281,49</div>
+  </div>
+
+  <div class="card" onclick="whatsCard(96968)">
+    <div class="valor">R$ 96.968,00</div>
+    <div class="parcela">84x de R$ 1.380,06</div>
+  </div>
+
+  <div class="card" onclick="whatsCard(103895)">
+    <div class="valor">R$ 103.895,00</div>
+    <div class="parcela">84x de R$ 1.478,65</div>
+  </div>
+
+  <div class="card" onclick="whatsCard(110126)">
+    <div class="valor">R$ 110.126,00</div>
+    <div class="parcela">84x de R$ 1.567,33</div>
+  </div>
+
+  <div class="card" onclick="whatsCard(117747)">
+    <div class="valor">R$ 117.747,00</div>
+    <div class="parcela">84x de R$ 1.675,79</div>
+  </div>
+
+  <div class="card" onclick="whatsCard(120100)">
+    <div class="valor">R$ 120.100,00</div>
+    <div class="parcela">84x de R$ 1.709,28</div>
+  </div>
+
+  <div class="card" onclick="whatsCard(124673)">
+    <div class="valor">R$ 124.673,00</div>
+    <div class="parcela">84x de R$ 1.774,36</div>
+  </div>
+</div>
+
+<div class="simulador">
+  <h2>Simule o valor de crédito desejado</h2>
+  <input type="text" id="valorDesejado" placeholder="Digite o valor desejado" />
+  <button class="btn" onclick="simular()">Simular</button>
+  <div class="resultado" id="resultado"></div>
+</div>
 
 </div>
 
@@ -138,7 +190,7 @@
   <h3>Consultor Christopher Norat</h3>
   <p>Honda Niponsul</p>
   <p>WhatsApp: (41) 98904-5115</p>
-  <p>Instagram: 
+  <p>Instagram:
     <a href="https://instagram.com/christopher_hondaconsorcio" target="_blank" class="instagram">
       @christopher_hondaconsorcio
     </a>
@@ -146,6 +198,8 @@
 </footer>
 
 <script>
+
+const WHATS_NUMBER = '5541989045115';
 
 const cartas = [
   {valor:62337, parcela:887.19},
@@ -164,11 +218,19 @@ function valorBRL(n){
   return n.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
 }
 
+function abrirWhats(mensagem){
+  const url = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+  window.open(url, '_blank');
+}
+
+function whatsCard(valor){
+  const msg = `Tenho interesse nessa opção de crédito do Consórcio Honda! Valor: R$ ${valorBRL(valor)}`;
+  abrirWhats(msg);
+}
+
 function converterNumeroBR(valor){
   if(!valor) return 0;
-  return Number(
-    valor.replace(/\s/g,'').replace(/\./g,'').replace(',', '.')
-  );
+  return Number(valor.replace(/\s/g,'').replace(/\./g,'').replace(',', '.'));
 }
 
 function simular(){
@@ -190,8 +252,8 @@ function simular(){
   });
 
   out.innerHTML = `
-    Opção mais próxima: R$ ${valorBRL(melhor.valor)}<br>
-    Parcela: 84x de R$ ${valorBRL(melhor.parcela)}
+    <strong>Opção de crédito mais próxima:</strong> R$ ${valorBRL(melhor.valor)}<br>
+    <strong>Parcela:</strong> 84x de R$ ${valorBRL(melhor.parcela)}
   `;
 }
 
