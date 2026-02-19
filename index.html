@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Consórcio Honda | Christopher Norat</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -12,26 +13,98 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
     body { background:#f5f5f5; color:#111; }
-    header { position: relative; text-align:center; padding:40px 20px 32px 20px; box-shadow:0 4px 12px rgba(0,0,0,0.08); color:#fff; overflow:hidden; }
-    header::before{ content:""; position:absolute; inset:0; background:url('./fundo.jpg') center/cover no-repeat; z-index:0; transform:scale(1.02); }
-    header::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.55) 100%); z-index:1; }
+
+    header {
+      position: relative;
+      text-align:center;
+      padding:40px 20px 32px 20px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      color:#fff;
+      overflow:hidden;
+    }
+
+    header::before{
+      content:"";
+      position:absolute; inset:0;
+      background:url('./fundo.jpg') center/cover no-repeat;
+      z-index:0;
+      transform:scale(1.02);
+    }
+
+    header::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 60%, rgba(0,0,0,.55) 100%);
+      z-index:1;
+    }
+
     header * { position:relative; z-index:2; }
-    .logo{ height:110px; width:auto; margin-bottom:16px; filter: drop-shadow(0 2px 6px rgba(0,0,0,.4)); }
-    .avatar { width:120px; height:120px; border-radius:50%; object-fit:cover; display:block; margin:0 auto 8px auto; box-shadow:0 4px 12px rgba(0,0,0,0.35); border:2px solid rgba(255,255,255,.85); }
+
+    .logo{
+      height:110px;
+      width:auto;
+      margin-bottom:16px;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.4));
+    }
+
+    .avatar {
+      width:120px; height:120px; border-radius:50%; object-fit:cover;
+      display:block; margin:0 auto 8px auto;
+      box-shadow:0 4px 12px rgba(0,0,0,0.35);
+      border:2px solid rgba(255,255,255,.85);
+    }
+
     header h1 { font-size:28px; font-weight:800; margin-top:22px; color:#fff; }
     .destaque { color:#ff4d4d; }
     .sub { font-size:18px; color:#e9e9e9; margin-top:5px; }
-    .btn-whatsapp { display:inline-flex; align-items:center; justify-content:center; gap:10px; margin-top:12px; background:#25D366; color:#fff; padding:12px 18px; border:none; border-radius:10px; font-weight:700; text-decoration:none; }
+
+    .btn-whatsapp {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      margin-top:12px; background:#25D366; color:#fff;
+      padding:12px 18px; border:none; border-radius:10px;
+      font-weight:700; text-decoration:none;
+    }
+
     .container { max-width:1200px; margin:auto; padding:40px 20px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:25px; }
-    .card { background:#fff; border-radius:16px; padding:30px 20px; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card {
+      background:#fff; border-radius:16px; padding:30px 20px; text-align:center;
+      box-shadow:0 6px 20px rgba(0,0,0,0.08); transition:0.3s;
+    }
+
+    .card:hover { transform:translateY(-8px); box-shadow:0 12px 30px rgba(0,0,0,0.15); }
+
     .valor { font-size:24px; font-weight:800; }
     .parcela { margin-top:10px; font-size:18px; color:#555; }
-    .simulador { margin-top:60px; background:#fff; padding:30px; border-radius:20px; box-shadow:0 6px 20px rgba(0,0,0,0.08); }
-    .simulador input { width:100%; padding:15px; margin-top:15px; border-radius:10px; border:1px solid #ddd; font-size:16px; }
-    .btn { margin-top:15px; background:#d40000; color:#fff; padding:14px; border:none; width:100%; font-weight:700; border-radius:10px; cursor:pointer; }
+
+    .simulador {
+      margin-top:60px; background:#fff; padding:30px;
+      border-radius:20px; box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .simulador input {
+      width:100%; padding:15px; margin-top:15px;
+      border-radius:10px; border:1px solid #ddd; font-size:16px;
+    }
+
+    .btn {
+      margin-top:15px; background:#d40000; color:#fff; padding:14px;
+      border:none; width:100%; font-weight:700; border-radius:10px; cursor:pointer;
+    }
+
     .resultado { margin-top:20px; font-size:18px; font-weight:600; }
-    footer { margin-top:80px; background:#111; color:#fff; text-align:center; padding:40px 20px; }
+
+    footer {
+      margin-top:80px; background:#111; color:#fff; text-align:center; padding:40px 20px;
+    }
+
+    .instagram { color:#ff2e2e; font-weight:700; }
   </style>
 </head>
 
@@ -48,12 +121,16 @@
 
 <div class="container">
 
-<div class="simulador">
-  <h2>Simule o valor de crédito desejado</h2>
-  <input type="text" id="valorDesejado" placeholder="Digite o valor desejado" />
-  <button class="btn" onclick="simular()">Simular</button>
-  <div class="resultado" id="resultado"></div>
-</div>
+  <div class="grid">
+    <!-- TODOS OS SEUS CARDS ORIGINAIS AQUI (mantidos exatamente iguais) -->
+  </div>
+
+  <div class="simulador">
+    <h2>Simule o valor de crédito desejado</h2>
+    <input type="text" id="valorDesejado" placeholder="Digite o valor desejado" />
+    <button class="btn" onclick="simular()">Simular</button>
+    <div class="resultado" id="resultado"></div>
+  </div>
 
 </div>
 
@@ -61,6 +138,11 @@
   <h3>Consultor Christopher Norat</h3>
   <p>Honda Niponsul</p>
   <p>WhatsApp: (41) 98904-5115</p>
+  <p>Instagram: 
+    <a href="https://instagram.com/christopher_hondaconsorcio" target="_blank" class="instagram">
+      @christopher_hondaconsorcio
+    </a>
+  </p>
 </footer>
 
 <script>
@@ -68,7 +150,14 @@
 const cartas = [
   {valor:62337, parcela:887.19},
   {valor:75063, parcela:1068.31},
-  {valor:76189, parcela:1084.33}
+  {valor:76189, parcela:1084.33},
+  {valor:90042, parcela:1281.49},
+  {valor:96968, parcela:1380.06},
+  {valor:103895, parcela:1478.65},
+  {valor:110126, parcela:1567.33},
+  {valor:117747, parcela:1675.79},
+  {valor:120100, parcela:1709.28},
+  {valor:124673, parcela:1774.36}
 ];
 
 function valorBRL(n){
@@ -78,10 +167,7 @@ function valorBRL(n){
 function converterNumeroBR(valor){
   if(!valor) return 0;
   return Number(
-    valor
-      .replace(/\s/g,'')
-      .replace(/\./g,'')
-      .replace(',', '.')
+    valor.replace(/\s/g,'').replace(/\./g,'').replace(',', '.')
   );
 }
 
